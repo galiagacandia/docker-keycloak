@@ -1,0 +1,130 @@
+dn: ou=Group,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: Group
+
+dn: ou=EntidadFinanciera,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: EntidadFinanciera
+
+dn: ou=Policia,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: Policia
+
+dn: ou=users,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: users
+
+dn: ou=Manager,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: Manager
+
+dn: ou=Municipios,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: Municipios
+
+dn: ou=MunicipiosUGS,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: MunicipiosUGS
+
+dn: ou=MunicipiosUAI,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: MunicipiosUAI
+
+dn: ou=MunicipiosUDS,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: MunicipiosUDS
+userPassword:: e1NIQX1URHBWc3pVQVNPYjVOakVOaXFLYWxGR3NJbzQ9
+
+dn: ou=MunicipiosUGI,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: MunicipiosUGI
+
+dn: ou=MunicipiosUGG,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: MunicipiosUGG
+
+dn: ou=RUAT,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: RUAT
+
+dn: ou=pislea,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: pislea
+
+dn: ou=People,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: People
+
+dn: ou=MunicipiosPISLEA,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: MunicipiosPISLEA
+
+dn: ou=PoliciaPISLEA,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: PoliciaPISLEA
+
+dn: ou=Administradores,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: Administradores
+
+dn: uid=ADMELAIME.CBA,ou=Administradores,dc=ruat,dc=gob,dc=bo
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: ADMDELDNFR
+gidNumber: 0
+homeDirectory: /
+sn: DNFR
+uid: ADMELAIME.CBA
+uidNumber: 8388
+displayName: ADMDELDNFR
+givenName: ADMDELDNFR
+userPassword:: RWxhaW1lIzA=
+
+dn: uid=ADMCMURILLOOI,ou=Administradores,dc=ruat,dc=gob,dc=bo
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: ENTIDAD OTRAS INSTITUCIONES
+sn: OTRAS INSTITUCIONES
+uid: ADMCMURILLOOI
+userPassword:: Q211cmlsbG8jMA==
+
+dn: uid=ADMDIPJLAURA.POL,ou=Administradores,dc=ruat,dc=gob,dc=bo
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: ENTIDAD POLICIA NACIONAL DE BOLIVIA
+sn: POLICIA NACIONAL DE BOLIVIA
+uid: ADMDIPJLAURA.POL
+userPassword:: SmxhdXJhIzA=
+
+dn: uid=RUATVCABRERA.CBA,ou=Administradores,dc=ruat,dc=gob,dc=bo
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: ENTIDAD OTRAS INSTITUCIONES
+sn: OTRAS INSTITUCIONES
+uid: RUATVCABRERA.CBA
+userPassword:: VmNhYnJlcmEjMA==
+

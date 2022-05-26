@@ -1,0 +1,67 @@
+version: '3'
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.0
+    depends_on:
+      - openldap
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin123
+      - KEYCLOAK_LOGLEVEL=INFO
+      - ROOT_LOGLEVEL=INFO
+    ports:
+      #- "8643:8443"
+      - "8080:8080"
+      - "8787:8787"
+    command:
+      - start-dev
+      - --features admin-fine-grained-authz
+  openldap:
+    image: osixia/openldap:latest
+    command:
+      - --loglevel
+      - debug
+    environment:
+      #DISABLE_CHOWN: "true"
+      #LDAP_LOG_LEVEL: "256"
+      #LDAP_READONLY_USER: "false"
+      #LDAP_RFC2307BIS_SCHEMA: "false"
+      LDAP_SEED_INTERNAL_LDIF_PATH: /resources/
+      LDAP_ORGANISATION: "RUAT DEVELOP"
+      LDAP_DOMAIN: "ruat.gob.bo"
+      LDAP_ADMIN_PASSWORD: openldap
+      LDAP_BASE_DN: dc=ruat,dc=gob,dc=bo
+      LDAP_TLS: "false"
+    ports:
+      - "8389:389"
+    volumes:
+      - ./ldif:/resources/
+      #- ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
+      - ldap_data:/var/lib/ldap
+      - ldap_config:/etc/ldap/slapd.d
+  openldap-server-admin:
+    image: osixia/phpldapadmin:0.7.2
+    depends_on:
+      - openldap
+    ports:
+      - "8090:80"
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: openldap
+      PHPLDAPADMIN_HTTPS: 'false'
+#  keycloak-config-cli:
+#    build: .
+#    image: adorsys/keycloak-config-cli:latest
+#    depends_on:
+#      - keycloak
+#    volumes:
+#      - ./contrib/example-config:/config
+#    environment:
+#      - keycloak.url=http://keycloak:8080
+#      - keycloak.user=admin
+#      - keycloak.password=admin123
+#      - keycloak.availability-check.enabled=true
+#      - spring.profiles.active=dev
+#      - import.cache.enabled=false
+volumes:
+  ldap_data:
+  ldap_config:

@@ -1,0 +1,25 @@
+dn: ou=Policies,dc=ruat,dc=gob,dc=bo
+objectClass: organizationalUnit
+objectClass: top
+ou: Policies
+description: Politicas para pruebas
+
+dn: cn=RUATPPolicy,ou=Policies,dc=ruat,dc=gob,dc=bo
+objectClass: person
+objectClass: pwdPolicy
+objectClass: top
+cn: RUATPPolicy
+pwdAttribute: userPassword
+sn: RUATPPolicy
+pwdAllowUserChange: TRUE
+pwdCheckQuality: 0
+pwdExpireWarning: 0
+pwdFailureCountInterval: 300
+pwdGraceAuthNLimit: 0
+pwdInHistory: 0
+pwdLockout: TRUE
+pwdLockoutDuration: 300
+pwdMaxAge: 0
+pwdMaxFailure: 5
+pwdMinLength: 0
+pwdSafeModify: FALSE
