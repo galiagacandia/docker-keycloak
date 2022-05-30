@@ -1,0 +1,141 @@
+body.ruat-login {
+  background: url(../img/ruat/logo-ruat-sec.svg) no-repeat bottom right fixed,
+    url(../img/ruat/bg-aplicacion.svg) no-repeat center center fixed;
+  background-size: 260px, cover;
+  background-position: right 7% bottom 7%, center center;
+}
+
+.ruat-login__pagina {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100%;
+  grid-gap: 4rem;
+}
+
+.ruat-login__footer{
+  display: none;
+}
+
+.ruat-login__institucion {
+  justify-self: end;
+  align-self: center;
+  height: 350px;
+}
+.ruat-login__institucion__logo {
+  width: 310px;
+  margin-top: 7rem;
+  height: 88px;
+}
+.ruat-login__institucion__footer {
+  display: none;
+  text-align: center;
+  margin-top: 6rem;
+  font-size: 11px;
+  color: #c4e4e6;
+}
+.ruat-login__card {
+  justify-self: start;
+  align-self: center;
+  width: 100%;
+}
+.ruat-login__card__header {
+  background: #005361;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1.5rem 0.5rem 1rem;
+}
+.ruat-login__card__form {
+  background: #fff;
+  max-width: 320px;
+  box-shadow: 0 10px 10px rgb(0, 0, 0, 0.5);
+  width: 100%;
+}
+.ruat-login__card__header h1 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.ruat-login__card__content {
+  padding: 0.5rem 1rem 2.5rem;
+}
+.ruat-login__card__options a{
+  color: #f49b00;
+  font-weight: 700;
+}
+#kc-info.ruat-login-info{
+  margin: 20px 0 -25px;
+}
+#kc-info-wrapper.ruat-area-info{
+  padding: 0.5rem 1rem;
+}
+.ruat-boton {
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 0 8px 16px rgb(0, 0, 0, 0.4);
+}
+.ruat-boton--primario {
+  background: #008e88;
+  color: #fff;
+}
+.ruat-control {
+  width: 100%;
+  border-radius: 1.2rem;
+  border: 1px solid gray;
+  padding: 0.5rem 1rem;
+}
+#username.ruat-control {
+  content: "";
+  padding-left: 2.25rem;
+  background: url(../img/ruat/ico-user.svg) no-repeat 0.7rem center;
+  background-size: 1rem;
+}
+#password.ruat-control, #password-new.ruat-control, #password-confirm.ruat-control {
+  content: "";
+  padding-left: 2.25rem;
+  background: url(../img/ruat/ico-pass.svg) no-repeat 0.7rem center;
+  background-size: 1rem;
+}
+.ruat-logo-aplicacion{
+  width: 125px;
+  height: 125px;
+}
+/*menor igual a 800 px*/
+@media (max-width: 800px) {
+  body.ruat-login {
+    background: url(../img/ruat/bg-aplicacion.svg) no-repeat left top fixed;
+    background-size: auto;
+  }
+  .ruat-login__pagina {
+    height: 100%;
+    display: block;
+    padding: 1rem;
+  }
+  .ruat-login__institucion {
+    text-align: center;
+    height: auto;
+  }
+  .ruat-login__institucion__logo {
+    width: 310px;
+    margin: 0 auto 1rem;
+  }
+  .ruat-login__institucion__footer {
+    display: none;
+  }
+  .ruat-login__card {
+    width: 100%;
+  }
+  .ruat-login__card__form {
+    margin: auto;
+  }
+  .ruat-login__footer{
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 11px;
+    color: #c4e4e6;
+  }
+}

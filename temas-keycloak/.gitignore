@@ -1,0 +1,7 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# temas propios de keycloak 15
+/base
+/keycloak
+/keycloak.v2
+/README.txt

@@ -1,67 +1,59 @@
 version: '3'
 services:
   keycloak:
-    image: quay.io/keycloak/keycloak:18.0.0
+    image: galiaga/keycloak:0.0.1
     depends_on:
-      - openldap
+      - postgres
     environment:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin123
+      - KC_DB=postgres
+      - KC_DB_URL=jdbc:postgresql://postgres:5432/postgres
+      - KC_DB_USERNAME=postgres
+      - KC_DB_PASSWORD=postgres
+      - KC_HOSTNAME=localhost
       - KEYCLOAK_LOGLEVEL=INFO
       - ROOT_LOGLEVEL=INFO
     ports:
-      #- "8643:8443"
-      - "8080:8080"
-      - "8787:8787"
-    command:
-      - start-dev
-      - --features admin-fine-grained-authz
-  openldap:
-    image: osixia/openldap:latest
-    command:
-      - --loglevel
-      - debug
-    environment:
-      #DISABLE_CHOWN: "true"
-      #LDAP_LOG_LEVEL: "256"
-      #LDAP_READONLY_USER: "false"
-      #LDAP_RFC2307BIS_SCHEMA: "false"
-      LDAP_SEED_INTERNAL_LDIF_PATH: /resources/
-      LDAP_ORGANISATION: "RUAT DEVELOP"
-      LDAP_DOMAIN: "ruat.gob.bo"
-      LDAP_ADMIN_PASSWORD: openldap
-      LDAP_BASE_DN: dc=ruat,dc=gob,dc=bo
-      LDAP_TLS: "false"
-    ports:
-      - "8389:389"
-    volumes:
-      - ./ldif:/resources/
-      #- ./ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom
-      - ldap_data:/var/lib/ldap
-      - ldap_config:/etc/ldap/slapd.d
-  openldap-server-admin:
-    image: osixia/phpldapadmin:0.7.2
-    depends_on:
-      - openldap
-    ports:
-      - "8090:80"
-    environment:
-      PHPLDAPADMIN_LDAP_HOSTS: openldap
-      PHPLDAPADMIN_HTTPS: 'false'
+      - "8443:8443"
+    command:      
+      - start
+    networks:
+      - red-keycloak
 #  keycloak-config-cli:
 #    build: .
 #    image: adorsys/keycloak-config-cli:latest
 #    depends_on:
+#      - postgres
 #      - keycloak
 #    volumes:
-#      - ./contrib/example-config:/config
+#      - ./config:/config
 #    environment:
-#      - keycloak.url=http://keycloak:8080
-#      - keycloak.user=admin
-#      - keycloak.password=admin123
-#      - keycloak.availability-check.enabled=true
-#      - spring.profiles.active=dev
-#      - import.cache.enabled=false
+#      keycloak.url : https://keycloak:8443
+#      keycloak.user : admin
+#      keycloak.password : admin123
+#      keycloak.ssl-verify : true 
+#      keycloak.availability-check.enabled : true
+#      keycloak.availability-check.timeout : 300s
+#      keycloak.connect-timeout : 200s
+#      spring.profiles.active : json-log
+#      import.cache.enabled : false
+#    networks:
+#      - red-keycloak
+  postgres:
+    image: postgres:14.3-alpine3.16
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5430:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - red-keycloak
+networks:
+  red-keycloak:
+    driver: bridge
 volumes:
-  ldap_data:
-  ldap_config:
+  postgres_data:
+    driver: local

@@ -1,0 +1,47 @@
+.navbar-title {
+  background-image: url("../img/ruat/logo-ruat.svg");
+}
+.header {
+  background: #005361;
+  border-top: none;
+}
+
+h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.titulo-contenido {
+  margin: 1rem 0 0.5rem;
+}
+.contenido-pagina {
+  background-color: #fff;
+  padding: 1rem;
+}
+.btn-primary {
+  background-color: #008e88;
+}
+.btn-primary:hover {
+  background-color: #008e88;
+}
+.contenido-pagina a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+.contenido-pagina a:hover {
+  text-decoration: underline;
+}
+.ruat-form-control.ruat-form-control--solo-lectura:disabled {
+  background-color: #fff;
+  color: rgb(133, 133, 133);
+}
+.ruat-botones {
+  text-align: left;
+}
+#kc-form-buttons .btn-primary {
+  float: none;
+  margin-left: 0;
+  margin-right: 8px;
+}
+.ruat-tabla__fecha {
+  text-align: center;
+}
